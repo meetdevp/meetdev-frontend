@@ -1,0 +1,81 @@
+<div class="wrapper">
+    <div class="container">
+        <h3 class="small-heading">
+           Project Description
+        </h3>
+        
+        <div class="basic-details">
+            <h2 class="name">
+                {{project?.Title |titlecase}}
+            </h2>
+        </div>
+           
+            <div class="user-details">
+                        <div class="detail">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-md-8">
+                                    <h4> <img src="assets/img/icons/people.svg" alt="mail" class="icon">{{project?.Collaborates.length}} collaboraters</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-md-8">
+                                    <h4> <img src="assets/img/icons/avatar.svg" alt="mail" class="icon">Project made by
+                                        <a [routerLink]="['/student/',project?.StudentId]"> {{owner?.Name}} </a></h4>
+                                </div>
+                            </div>
+                        </div>
+
+            <div class="interests">
+                <h3>
+                    Project Domains: 
+                </h3>
+                <span class="tech" *ngFor="let tech of project?.ProjectTechnologies">
+                    {{tech}}
+                </span>
+            </div>
+            <div class="about">
+                <h3 class="heading">Abstract of Project</h3>
+                <p>
+                   {{project?.Discription}}
+                </p>
+            </div>
+        </div>
+
+        <div class="project-actions">
+            <div class="row">
+            <div class="col-md-6">
+                <div class="like-action">
+                    <h4 class="heading-grey">
+                       {{project?.Likes}} Likes
+                    </h4>
+                        <button class="like-btn" *ngIf="!Liked" (click)="likeProject()" title="Like the project!">
+                            <img src="assets/img/icons/not-liked.svg" alt="" class="btn-img">
+                        </button>
+                        <button class="like-btn" *ngIf="Liked" (click)="unlikeProject()" title="Unike the project">
+                         <img src="assets/img/icons/liked.svg" alt="" class="btn-img">
+                         </button>
+                    
+        </div>
+           
+            
+        </div>
+        <div class="col-md-6">
+            <div class="collab-action">
+                <h4 class="heading-grey">
+                    <span *ngIf="showRequestBtn">Send</span>
+                    <span *ngIf="!showRequestBtn">Canel</span>
+                     the request for collab.
+                </h4>
+                <button class="btn btn-small" *ngIf="showRequestBtn" (click)="sendCollabRequest()">Send Request</button>
+                <button class="btn btn-small btn-red" *ngIf="!showRequestBtn" (click)="cancelCollabRequest()">Cancel Request</button>
+        </div>
+        </div>
+              
+            
+        </div>
+
+    </div>
+  
+</div>

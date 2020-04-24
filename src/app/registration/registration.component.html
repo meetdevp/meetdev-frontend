@@ -1,0 +1,222 @@
+
+    <div class="overlay"></div>
+<div class="wrapper">
+  <h1 class="big-heading text-center">
+    Member Registration
+  </h1>
+  <!-- <h3 class="text-center small-heading">
+    Hello Mandeep, fill the below form to get started with our platform.
+  </h3> -->
+  <div class="container">
+    <div class="register-content">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="register-form" id="register-form">
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <div class="form-group row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Phone Number :</label>
+                        <input formControlName="Phone" class="form-control" type="number" id="name" />
+                        <div class="validation" *ngIf="form.get('Phone').invalid && formSubmitted">
+                            <div *ngIf="form.get('Phone').errors.required">
+                                Please enter your Phone.
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                <div class="form-group">
+                  <label for="state">Department :</label>
+                  <div class="form-select">
+                    <select formControlName="Department" class="form-control" name="state" id="state">
+                        <option value="" selected>Select your Department</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Electronics and Communication">Electronics and Communication</option>
+                    </select>
+                    <span class="select-icon"
+                      ><i class="zmdi zmdi-chevron-down"></i
+                    ></span>
+                    <div class="validation" *ngIf="form.get('Department').invalid && formSubmitted">
+                        <div *ngIf="form.get('Department').errors.required">
+                            Please select your Department.
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+                </div>
+                
+                  <div class="form-group">
+                    <label for="name">Batch: (starting year - ending year)</label>
+                    <input formControlName="Batch" class="form-control" type="text" name="phone" id="name" />
+                    <div class="validation" *ngIf="form.get('Batch').invalid && formSubmitted">
+                        <div *ngIf="form.get('Batch').errors.required">
+                            Please enter your Batch.
+                        </div>
+                    </div>
+                  </div>
+
+                      <!-- <div class="form-row row">
+                          <div class="col-md-6">
+                            <div class="form-select">
+                            <select class="form-control" name="yearbegin" id="yearbegin">
+                                <option value="">Starting Year</option>
+                               <option value="{{year}}" *ngFor="let year of batchYears">{{year}}</option>
+                              </select>
+                              <span class="select-icon"
+                              ><i class="zmdi zmdi-chevron-down"></i
+                            ></span>
+                          </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-select">
+                            <select class="form-control" name="yearend" id="yearend">
+                                <option value="">Ending Year</option>
+                               <option value="{{year + 4}}" *ngFor="let year of batchYears">{{year + 4}}</option>
+                              </select>
+                              <span class="select-icon"
+                              ><i class="zmdi zmdi-chevron-down"></i
+                            ></span>
+                          </div>
+                          </div>
+
+                      </div> -->
+                   
+               
+             
+            
+              <div class="form-group">
+                <label for="address">Bio :</label>
+                <textarea formControlName="Bio" class="form-control" type="text" name="bio" id="bio"></textarea>
+                <div class="validation" *ngIf="form.get('Bio').invalid && formSubmitted">
+                    <div *ngIf="form.get('Bio').errors.required">
+                        Please select at least one technology.
+                    </div>
+                </div>
+              </div>
+             
+              <div class="form-group">
+
+                <label for="Technology">Interested Technology :</label>
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let tech of technologies">
+                        <div class="inputGroup">
+                            <input formControlName="Technologies" [id]="tech.id" type="checkbox" value={{tech.name}} (change)="addTechnology(tech,$event)"/>
+                            <label [for]="tech.id">{{tech.name}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="validation" *ngIf="form.get('Technologies').invalid && formSubmitted">
+                    <div *ngIf="form.get('Technologies').errors.required">
+                        Please select at least one technology.
+                    </div>
+                </div>
+                
+              </div>
+
+              <div class="row justify-content-end">
+                  <div class="col-md-6">
+                    <button class="form-submit"
+                          type="submit"
+                          class="btn"
+                        >Submit</button>
+                        
+                      </div>
+                </div>
+             
+              
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-5 bg_light">
+          <div class="welcome-text">
+            <h3>
+              Fill the fields given on the side to get started with 
+            </h3>
+            <img src="assets/img/logo.png" alt="" class="logo-img">
+        </div>
+          <div class="text-center">
+
+            <img class="register-img" src="assets/img/register-img.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---------MODALS------------>
+<div class="modal" id="profileModal" role="dialog" #profileModal>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-head">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="modal.closeModal(profileModal)"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <img
+          src="assets/img/mail.png
+       "
+          alt=""
+        />
+        <h2>
+         Your details have been submitted successfully.
+         Registration successfull.
+        </h2>
+      </div>
+      <button
+        type="button"
+        class="btn"
+        routerLink="/my-profile"
+      >
+        Go to Profile
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="errorModal" role="dialog" #errorModal>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-head">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="modal.closeModal(errorModal)"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <img
+          src="assets/img/mail.png"
+          alt=""
+        />
+        <h2>
+         Registration Failed.
+         <br>
+         Some error occured! Try Again.
+        </h2>
+      </div>
+      <button
+        type="button"
+        class="btn"
+        data-dismiss="modal"
+        (click)="modal.closeModal(errorModal)"
+      >
+        OK
+      </button>
+    </div>
+  </div>
+</div>

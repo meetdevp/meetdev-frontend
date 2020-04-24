@@ -1,0 +1,29 @@
+<header class="header">
+    <div class="logo">
+        <a routerLink="/home">
+            <img src="assets/img/logo.png" alt="">
+        </a>
+    </div>
+    <div class="navbar">
+        <ul class="menu">
+            <li>
+                <a routerLink="/home">Home</a>
+            </li>
+            <li>
+                <a routerLink="/my-profile" *ngIf="auth.isLoggedIn">Profile</a>
+            </li>
+            <li>
+                <a routerLink="/login" *ngIf="!auth.isLoggedIn">Login</a>
+            </li>
+            <li>
+                <a routerLink="/signup" *ngIf="!auth.isLoggedIn">Signup</a>
+            </li>
+            <li>
+                <a (click)="logout()" *ngIf="auth.isLoggedIn"> 
+                    <img src="assets/img/icons/logout.svg" alt="" class="logout-logo">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>

@@ -1,0 +1,84 @@
+
+
+.profiles{
+    margin: 3rem 0 2rem;
+}
+
+.feed-header{
+    margin: 4rem 0 8rem;
+}
+.feed-body{
+    padding: 0 5vw;
+}
+
+.card-black{
+    border: 1px solid #3d3d3d;
+    background-color: #2020200a;
+    padding: 3rem 2rem;
+    border-radius:1rem;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+
+    .name{
+        color: #212121;
+        margin-bottom: 1.5rem;
+    }
+    .dept,.interest-head{
+        font-family: Gilroy;
+        margin-bottom: 1rem;
+    }
+}
+
+.interests{
+    margin-top: 1rem;
+
+    .interest-head{
+        font-size: 1.6rem;
+    }
+}
+
+.tech{
+    text-align: center;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #341fff;
+    background-color: #351fff1a;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin:0.5rem 1rem;
+    margin-left: 0;
+}
+
+
+.card-blue{
+        border: 1.5px solid #341fff;
+        background-color: #351fff1a;
+        padding: 3rem;
+        border-radius:1rem;
+        margin-bottom: 4rem;
+        min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p{
+        font-size: 1.4rem;
+    }
+}
+.feed-projects{
+    margin-top: 4rem;
+}
+
+.projects{
+    margin: 4rem 0;
+
+    .technologies{
+        margin: 1rem;
+
+     
+    }
+}

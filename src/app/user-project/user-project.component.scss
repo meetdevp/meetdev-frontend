@@ -1,0 +1,43 @@
+@import '../profile-page/profile-page.component.scss';
+
+.user-details{
+    .detail{
+        display: block;
+    }
+}
+
+.basic-details{
+    background-color: #096c4834;
+    h2{
+        color: #096c36;
+    }
+}
+
+.interests{
+    border-top: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.tech{
+    background-color: #351fff1a;
+    color: #341fff;
+}
+
+.project-actions{
+    margin-top: 7rem;
+
+    .panel{
+        padding:2rem 0;
+        border-bottom: 1px solid #ccc;
+        h3{
+            color: #2c2c2c;
+            font-size: 2.2rem;
+            letter-spacing: -0.05rem;
+        }
+    }
+}
+
+.like-logo{
+    margin-right: 6px;
+    width: 3rem;
+}

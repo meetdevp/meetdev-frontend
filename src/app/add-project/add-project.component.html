@@ -1,0 +1,97 @@
+<div class="wrapper">
+    <h1 class="big-heading text-center">
+      Add Project
+    </h1>
+    <h3 class="text-center small-heading">
+      Fill the below form to add project details.
+    </h3>
+    <div class="container">
+      <div class="register-content">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="register-form" id="register-form">
+              <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="form-group">
+                   
+                      <div class="form-group">
+                          <label for="name">Project Name :</label>
+                          <input formControlName="Title" class="form-control" type="text" name="name" id="name" />
+                          <div class="validation" *ngIf="form.get('Title').invalid && formSubmitted">
+                            <div *ngIf="form.get('Title').errors.required">
+                                Please enter the title of the project.
+                            </div>
+                        </div>
+                      </div>
+                    
+                </div>
+                  
+                    <!-- <div class="form-group">
+                      <label for="name">Status :</label>
+                      <br>3
+                      <div class="myradio">
+                        <input type="radio" name="myRadio" id="one" class="myradio__input" value="notstarted">
+                        <label for="one" class="myradio__label">Not started yet</label>
+                    </div>
+                    <div class="myradio">
+                        <input type="radio" name="myRadio" id="two" class="myradio__input" value="inprogress">
+                        <label for="two" class="myradio__label">In progress</label>
+                    </div>
+                    <div class="myradio">
+                        <input type="radio" name="myRadio" id="three" class="myradio__input" value="completed">
+                        <label for="three" class="myradio__label">Completed</label>
+                    </div>
+                       
+                    </div> -->
+                       
+                <div class="form-group">
+                  <label for="address">Description :</label>
+                  <textarea formControlName="Discription" class="form-control" type="text" name="Description" id="Description"></textarea>
+                  <div class="validation" *ngIf="form.get('Discription').invalid && formSubmitted">
+                    <div *ngIf="form.get('Discription').errors.required">
+                        Please enter the description of the project.
+                    </div>
+                </div>
+                </div>
+               
+                <div class="form-group">
+                  <label for="Technology">Select Domain of Project:</label>
+                  
+                  <div class="row">
+                      <div class="col-md-6" *ngFor="let tech of technologies">
+                          <div class="inputGroup">
+                              <input formControlName="ProjectTechnologies" [id]="tech.id" name="option1" type="checkbox" (click)="addTechnology(tech, $event)"/>
+                              <label [for]="tech.id">{{tech.name}}</label>
+                          </div>
+                      </div>
+                     
+                  </div>
+                  <div class="validation" *ngIf="form.get('ProjectTechnologies').invalid && formSubmitted">
+                    <div *ngIf="form.get('ProjectTechnologies').errors.required">
+                        Please select at least one item for project domain.
+                    </div>
+                </div>
+                </div>
+  
+                <div class="row justify-content-end">
+                    <div class="col-md-6">
+                      <button class="form-submit"
+                            type="Add Project"
+                            class="btn"
+                          >Add Project</button>
+                        </div>
+                  </div>
+               
+                
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-5 bg_light">
+            <div class="text-center">
+              <img class="register-img" src="assets/img/add-project-img.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,103 @@
+<div class="wrapper">
+    <div class="container">
+        <h3 class="small-heading">
+            Your Profile
+        </h3>
+        
+        <div class="basic-details">
+            <h2 class="name">
+                {{user?.Name |titlecase}}
+            </h2>
+        </div>
+           
+            <div class="user-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="detail">
+                            <h4> <img src="assets/img/icons/mail.svg" alt="mail" class="icon"> Email:</h4>
+                            <p>
+                              <a href="mailto:mandeepb29@gmail.com"> {{user?.Email}}</a>
+                            </p>
+                             
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail">
+                            <h4> <img src="assets/img/icons/telephone.svg" alt="mail" class="icon"> Contact:</h4>
+                            <p>
+                              <a href="tel:7389885126"> {{user?.Phone}}</a>
+                            </p>
+                             
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail">
+                            <h4> <img src="assets/img/icons/department.svg" alt="mail" class="icon"> Department:</h4>
+                            <p>
+                             {{user?.Department}}
+                            </p>
+                             
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail">
+                            <h4> <img src="assets/img/icons/calendar.svg" alt="mail" class="icon"> Batch:</h4>
+                            <p>
+                               {{user?.Batch}}
+                            </p>
+                             
+                          </div>
+                    </div>
+                </div>
+            <div class="interests">
+                <h3>
+                    Interested in: 
+                </h3>
+                <span class="tech" *ngFor="let tech of user?.Technologies">
+                    {{tech}}
+                </span>
+            </div>
+            <div class="about">
+                <h3 class="heading">About</h3>
+
+                <p>
+                   {{user?.Bio}}
+                </p>
+            </div>
+        </div>
+
+
+        <div class="projects ">
+            <div class="project-header">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <h3>
+                            Your Projects
+                        </h3>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn" routerLink="/add-project">+ Add Project</a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="project-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6" *ngFor="let project of projects">
+                        <div class="project-card">
+                            <h3 class="project-title">
+                                {{project.Title}}
+                            </h3>
+                            <p class="project-desc">
+                                {{project.Discription | shorten:50}}
+                            </p>                         
+                            <a class="btn btn-small"  [routerLink]="['/project-page/', project._id]">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  
+</div>

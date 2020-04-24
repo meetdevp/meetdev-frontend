@@ -1,0 +1,81 @@
+
+<div class="wrapper">
+    <div class="container-fluid">
+            <div class="feed-header">
+                <h3 class="text-center">
+                    Welcome {{studentName}}, here your today's feed.
+                </h3>
+            </div>
+       <div class="feed-body">
+        
+            <div class="feed-profiles">
+                <h2 class="heading-grey">
+                 Profiles you may be interested in
+                </h2>
+ 
+                <div class="profiles">
+                 <owl-carousel
+                 [items]="students"
+                 [options]="profileCarousel"
+                 [carouselClasses]="['owl-theme', 'row', 'sliding']"
+               >
+                 <div class="item" *ngFor="let student of students">
+                  <div class="card-black">
+                      <h3 class="name">
+                         {{student.Name | titlecase}}
+                      </h3>
+                      <h4 class="dept">
+                         {{student.Department |titlecase }}
+                      </h4>
+                      
+                      <div class="interests" *ngIf="student.technologyToShow">
+                        <h4 class="heading-grey interest-head">Interested in</h4>
+                        <div class="row no-gutters">
+                            <div class="col-12" *ngFor="let tech of student?.technologyToShow">
+                                <span class="tech">{{tech}}</span>
+                            </div>
+                        </div>
+                        <!-- <p class="text-right text-small" *ngIf="student.remainingTechNumber > 0">
+                            and {{student.remainingTechNumber}} others.
+                        </p> -->
+
+                        <a [routerLink]="['/student',student._id]" class="btn btn-small btn-black">View Profile</a>
+                        
+                      </div>
+                      
+                  </div>
+                 </div>
+               </owl-carousel>
+                </div>
+            </div>
+            <div class="feed-projects">
+                <h2 class="heading-grey">
+                    Latest Projects
+                   </h2>
+
+                   <div class="projects">
+                       <div class="row">
+                           <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let project of projects">
+                            <div class="card-blue">
+                                <h3 class="project-title">
+                                    {{project?.Title}}
+                                </h3>
+                                <div class="technologies">
+                                    <div class="tech"  *ngFor="let tech of project?.technologyToShow">
+                                        {{tech}}
+                                    </div>
+                                </div>
+                                <p class="project-desc">
+                                    {{project?.Discription | shorten:50}}
+                                </p>  
+                                                      
+                                <a class="btn btn-small"  [routerLink]="['/project/', project._id]">View More</a>
+                            </div>
+                           </div>
+                       </div>
+                   </div>
+            </div>
+          
+       </div>
+    </div>
+</div>
