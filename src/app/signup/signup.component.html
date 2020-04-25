@@ -1,4 +1,4 @@
-<div class="overlay"></div>
+
 <div class="main">
 
     <!-- Sign up form -->
@@ -53,7 +53,14 @@
                         </div>
                         
                         <div class="form-group form-button">
-                            <button type="submit" id="signup" class="btn">Submit</button>
+                            <button type="submit" id="signup" class="btn" (click)="modal.showBtnLoader()">
+                              <span class="btn-loading-content">
+                                <i class="fa fa-circle-o-notch fa-spin"></i> Please wait...
+                              </span>
+                              <span class="btn-default-content">
+                               Sign Up
+                              </span>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -107,6 +114,7 @@
           class="btn"
           routerLink="/login"
         >
+        
           Login
         </button>
       </div>
@@ -149,3 +157,4 @@
       </div>
     </div>
   </div>
+

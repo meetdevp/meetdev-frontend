@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private url = "http://localhost:3000";
+  private url = "https://minor-backend.herokuapp.com";
 
   public isLoggedIn : Boolean = false;
   public studentId: string;

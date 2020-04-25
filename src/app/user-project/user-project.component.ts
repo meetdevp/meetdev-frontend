@@ -17,11 +17,14 @@ export class UserProjectComponent implements OnInit {
     this.router.params.subscribe(result=> {
       this.project_id = result.id;
       console.log(this.project_id)
+
+      this.projectservice.getProjectById(this.project_id).subscribe(response => {
+        this.project = response['project'];
+        console.log(response);
+        console.log(this.project);
+      })
     })
 
-    this.projectservice.getStudentsProjectById(this.project_id).subscribe(response => {
-      this.project = response['result'];
-      console.log(this.project);
-    })
+   
   }
 }

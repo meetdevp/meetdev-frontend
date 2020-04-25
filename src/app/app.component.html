@@ -4,3 +4,42 @@
     </router-outlet>
 </div>
 
+
+<!--COMMON MODALS-->
+<div class="overlay"></div>
+
+<div class="modal" id="failedModal" role="dialog" #failedModal>
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-head">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            (click)="modal.closeModal(failedModal)"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="assets/img/mail.png"
+            alt=""
+          />
+          <h2>
+            Some error occured.
+           <br>
+           Please try again.
+          </h2>
+        </div>
+        <button
+          type="button"
+          class="btn"
+          data-dismiss="modal"
+          (click)="modal.closeModal(failedModal)"
+        >
+          OK
+        </button>
+      </div>
+    </div>
+  </div>

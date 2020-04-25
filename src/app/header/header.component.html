@@ -1,13 +1,13 @@
 <header class="header">
     <div class="logo">
-        <a routerLink="/home">
+        <a>
             <img src="assets/img/logo.png" alt="">
         </a>
     </div>
     <div class="navbar">
         <ul class="menu">
             <li>
-                <a routerLink="/home">Home</a>
+                <a routerLink="/home" *ngIf="auth.isLoggedIn">Home</a>
             </li>
             <li>
                 <a routerLink="/my-profile" *ngIf="auth.isLoggedIn">Profile</a>

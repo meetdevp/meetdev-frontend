@@ -1,4 +1,5 @@
 
+
 @font-face{
   font-family: Gilroy;
     src: url('/assets/fonts/gilroy/Gilroy-Light.otf');
@@ -16,6 +17,8 @@
   font-weight: 600;
 }
 
+@import './app/common/styles/modal-styles.scss';
+
 html{
     font-size:62.5%;
 }
@@ -30,6 +33,10 @@ font-family: 'Quicksand', sans-serif;
 }
 button{
   outline: none !important;
+}
+  
+.btn-loading-content{
+  display: none;
 }
 
 span{

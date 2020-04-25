@@ -20,7 +20,7 @@ export class ProfilePageComponent implements OnInit {
     this.user_id= {
       'StudentId': localStorage.getItem('student_id')
     };
-    this.id = localStorage.getItem('student_id');
+    //this.id = localStorage.getItem('student_id');
     
     this.studentservice.getStudent(this.user_id).
     subscribe(response => {
@@ -28,7 +28,7 @@ export class ProfilePageComponent implements OnInit {
       console.log(this.user);
     })
 
-    this.projectservice.getStudentsProject(this.id).subscribe(response => {
+    this.projectservice.getStudentsProject(this.user_id).subscribe(response => {
       this.projects = response['result'];
       console.log(this.projects);
     })

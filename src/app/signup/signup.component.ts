@@ -31,12 +31,15 @@ export class SignupComponent implements OnInit {
     this.formSubmitted = true;
     console.log("submit form");
     if(this.form.invalid){
+      this.modal.hideBtnLoader();
       return;
     }
     
     if(this.form.get('Password').value !== this.form.get('confirmpassword').value){
       console.log('password not matched');
+      this.modal.hideBtnLoader();
       this.invalidConfirmPassword = true;
+      
     }
     else{
       this.invalidConfirmPassword = false;
@@ -47,11 +50,18 @@ export class SignupComponent implements OnInit {
         //this.student_id = response['Student']._id;
         if(response['msg'] === "Sign Up Successfully"){
           console.log("signup successful", response);
+          this.modal.hideBtnLoader();
           this.modal.openModal('#successModal');
         }
         else if(response['msg'] === "Email Already Exist"){
-          console.log("signup failed", response);
+          console.log("mail already exists", response);
+          this.modal.hideBtnLoader();
           this.modal.openModal('#mailExists');
+        }
+        else{
+          console.log("signup failed", response);
+          this.modal.hideBtnLoader();
+          this.modal.openModal('#failedModal');
         }
       })
     }

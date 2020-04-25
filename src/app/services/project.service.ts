@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProjectService {
-  private url = "http://localhost:3000";
+  private url = "https://minor-backend.herokuapp.com";
   constructor(private http:HttpClient) { }
 
   
@@ -21,10 +21,10 @@ export class ProjectService {
   //GETpROJECT 
   
   getStudentsProject(id) {
-    return this.http.get(`${this.url}/get-project-byStudentId/`+id); 
+    return this.http.post(`${this.url}/get-project-byStudentId/`,id); 
   }
 
-  getStudentsProjectById(id) {
+  getProjectById(id) {
     return this.http.get(`${this.url}/get-projectById/`+id); 
   }
 

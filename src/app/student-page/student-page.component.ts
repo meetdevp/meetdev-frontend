@@ -19,11 +19,11 @@ export class StudentPageComponent implements OnInit {
     this.router.params.subscribe(result=> {
       this.student_id = result.id;
       console.log(this.student_id);
-    })
 
-    this.id = {
-      'StudentId': this.student_id
-    };
+      this.id = {
+        'StudentId': this.student_id
+      };
+    })
     
     this.studentservice.getStudent(this.id).
     subscribe(response => {
@@ -31,7 +31,7 @@ export class StudentPageComponent implements OnInit {
       console.log(this.student);
     })
 
-    this.projectservice.getStudentsProject(this.student_id).subscribe(response => {
+    this.projectservice.getStudentsProject(this.id).subscribe(response => {
       this.projects = response['result'];
       console.log(this.projects);
     })

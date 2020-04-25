@@ -27,8 +27,8 @@ export class ProjectPageComponent implements OnInit {
 
     this.student_id = localStorage.getItem('user_id');
 
-    this.projectservice.getStudentsProjectById(this.project_id).subscribe(response => {
-      this.project = response['result'];
+    this.projectservice.getProjectById(this.project_id).subscribe(response => {
+      this.project = response['project'];
       console.log("Project",this.project);
 
         //get the student id to whom the project belong
@@ -70,21 +70,27 @@ export class ProjectPageComponent implements OnInit {
 
   likeProject(){
     console.log("like project");
+    this.Liked = true;
+    this.project.Likes++
     this.projectservice.likeProject(this.project_id,this.student_id)
     .subscribe(response => {
       console.log(response);
-      this.Liked = true;
+     
+     
       console.log(this.owner,this.project);
     })
    
   }
 
   unlikeProject(){
+   
     console.log("unlike project");
+    this.Liked = false;
+    this.project.Likes--;
     this.projectservice.unlikeProject(this.project_id,this.student_id)
     .subscribe(response => {
       console.log(response);
-      this.Liked = false;
+
       console.log(this.owner,this.project);
     })
   }
