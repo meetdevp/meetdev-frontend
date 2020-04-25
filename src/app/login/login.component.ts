@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.auth.setDataInLocalStorage(userId, studentName);
 
         if (isRegistered == true) {
-          this.auth.route.navigate(['/my-profile']);
+          this.auth.route.navigate(['/home']);
           console.log(isRegistered);
         } else {
           this.auth.route.navigate(['/register']);
